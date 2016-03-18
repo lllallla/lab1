@@ -12,7 +12,7 @@ public class Main {
 		int i;
 		for (i = 0; i < disArr.length; i++)
 			if (disArr[i].equals("small") || disArr[i].equals("medium")
-					|| disArr[i].equals("large"))
+					|| disArr[i].equals("large") || disArr[i].equals("grant"))
 				break;
 
 		if (i >= disArr.length) {
@@ -32,6 +32,10 @@ public class Main {
 			order = new CoffeeBeverage();
 			order = new Espresso();
 			((CoffeeBeverage) order).setSize(disArr[i]);
+		} else if (beveStr.equals("decaf")) {
+			order = new CoffeeBeverage();
+			order = new Decaf();
+			((CoffeeBeverage) order).setSize(disArr[i]);
 		} else if (beveStr.equals("houseblend")) {
 			order = new CoffeeBeverage();
 			order = new HouseBlend();
@@ -46,6 +50,18 @@ public class Main {
 			order = new Milk(order);
 		} else if (beveStr.equals("cappuccino")) {
 			order = new Espresso();
+			((CoffeeBeverage) order).setSize(disArr[i]);
+			order = new WhipCream(order);
+		} else if (beveStr.equals("decaf mocha")) {
+			order = new Decaf();
+			((CoffeeBeverage) order).setSize(disArr[i]);
+			order = new Chocolate(order);
+		} else if (beveStr.equals("decaf latte")){
+			order = new Decaf();
+			((CoffeeBeverage) order).setSize(disArr[i]);
+			order = new Milk(order);
+		} else if (beveStr.equals("decaf cappuccino")){
+			order = new Decaf();
 			((CoffeeBeverage) order).setSize(disArr[i]);
 			order = new WhipCream(order);
 		} else if (beveStr.equals("green tea")) {
@@ -99,7 +115,7 @@ public class Main {
 			((BeverageWithIngredient) order).getDescription();
 		} else if (order instanceof Espresso) {
 			((Espresso) order).getDescription();
-		}
+		} 
 		// and so on...
 
 		DecimalFormat df = new DecimalFormat(".0");
