@@ -8,10 +8,8 @@ public class TeaBased implements SizeFactor {
 			return 0.2;
 		} else if (size.toLowerCase().equals("medium")) {
 			return 0.5;
-		} else if (size.toLowerCase().equals("large")) {
-			return 0.7;
 		} else {
-			return 0.9;
+			return 0.7;
 		}
 	}
 
